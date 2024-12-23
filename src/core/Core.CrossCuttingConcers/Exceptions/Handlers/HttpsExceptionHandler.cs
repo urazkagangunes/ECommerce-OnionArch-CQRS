@@ -1,4 +1,6 @@
 ﻿using Core.CrossCuttingConcers.Exceptions.ExceptionTypes;
+using Core.CrossCuttingConcers.Exceptions.Extensions;
+using Core.CrossCuttingConcers.Exceptions.HttpProblemDetails;
 using Microsoft.AspNetCore.Http;
 
 namespace Core.CrossCuttingConcers.Exceptions.Handlers;
@@ -14,22 +16,33 @@ public class HttpsExceptionHandler : ExceptionHandler
     }
     protected override Task HandleException(AuthorizationException authorizationException)
     {
-        Response.StatusCode = StatusCodes.Status400BadRequest;
-        string details = new AuthorizationProblemDetails(authorizationException.Message).AsJson;
+        Response.StatusCode = StatusCodes.Status401Unauthorized;
+        string details = new AuthorizationProblemDetails(authorizationException.Message).AsJson();
+        
+        return Response.WriteAsync(details);
     }
 
     protected override Task HandleException(ValidationException validationException)
     {
-        throw new NotImplementedException();
+        Response.StatusCode = StatusCodes.Status400BadRequest;
+        string details = new ValidationProblemDetails(validationException.Errors).AsJson();
+
+        return Response.WriteAsync(details);
     }
 
     protected override Task HandleException(BusinessException businessException)
     {
-        throw new NotImplementedException();
+        Response.StatusCode = StatusCodes.Status400BadRequest;
+        string details = new BusinessProblemDetails(businessException.Message).AsJson();
+
+        return Response.WriteAsync(details);
     }
 
     protected override Task HandleException(Exception exception)
     {
-        throw new NotImplementedException();
+        Response.StatusCode = StatusCodes.Status500InternalServerError;
+        string details = new InternalServerErrorProblemDetails(exception.Message).AsJson();
+
+        return Response.WriteAsync(details);
     }
 }
