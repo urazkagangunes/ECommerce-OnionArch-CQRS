@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Core.CrossCuttingConcers.Exceptions.HttpProblemDetails;
+namespace Core.CrossCuttingConcerns.Exceptions.HttpProblemDetails;
 
 public class AuthorizationProblemDetails : ProblemDetails
 {

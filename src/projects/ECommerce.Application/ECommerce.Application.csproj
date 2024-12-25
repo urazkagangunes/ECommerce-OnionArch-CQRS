@@ -12,11 +12,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Categories\Commands\" />
+    <Folder Include="Features\Categories\Commands\Delete\" />
+    <Folder Include="Features\Categories\Commands\Update\" />
     <Folder Include="Features\Categories\Constants\" />
     <Folder Include="Features\Categories\Rules\" />
-    <Folder Include="Features\Categories\Profiles\" />
     <Folder Include="Features\Categories\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECommerce.Domain\ECommerce.Domain.csproj" />
   </ItemGroup>
 
 </Project>

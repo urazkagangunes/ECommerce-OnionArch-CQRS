@@ -1,4 +1,4 @@
-﻿using Core.CrossCuttingConcers.Exceptions.ExceptionTypes;
+﻿using Core.CrossCuttingConcerns.Exceptions.ExceptionTypes;
 using Core.Security.Constants;
 using Core.Security.Extensions;
 using MediatR;

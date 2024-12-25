@@ -1,4 +1,4 @@
-﻿namespace Core.CrossCuttingConcers.Rules;
+﻿namespace Core.CrossCuttingConcerns.Rules;
 
 public abstract class BaseBusinessRules
 {

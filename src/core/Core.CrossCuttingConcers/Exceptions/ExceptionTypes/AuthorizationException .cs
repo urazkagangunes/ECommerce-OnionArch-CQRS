@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Core.CrossCuttingConcers.Exceptions.ExceptionTypes;
+namespace Core.CrossCuttingConcerns.Exceptions.ExceptionTypes;
 
 public class AuthorizationException : Exception
 {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5D34F27F-D29A-4408-85CB-572AE51E294A}"
 EndProject
@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Persistence", "src\cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Application", "src\core\Core.Application\Core.Application.csproj", "{FF33EF84-8168-45FB-922E-370C1EE49F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcers", "src\core\Core.CrossCuttingConcers\Core.CrossCuttingConcers.csproj", "{3B480042-F14C-4323-AC6D-3498334FA1D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.CrossCuttingConcerns", "src\core\Core.CrossCuttingConcers\Core.CrossCuttingConcerns.csproj", "{3B480042-F14C-4323-AC6D-3498334FA1D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ElasticSearch", "src\core\Core.ElasticSearch\Core.ElasticSearch.csproj", "{773D2423-E793-4F60-AEA8-AEBB9753E55E}"
 EndProject

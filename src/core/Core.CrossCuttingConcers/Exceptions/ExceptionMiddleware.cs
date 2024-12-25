@@ -1,10 +1,10 @@
-﻿using Core.CrossCuttingConcers.Exceptions.Handlers;
-using Core.CrossCuttingConcers.Serilog.Loggers;
+﻿using Core.CrossCuttingConcerns.Exceptions.Handlers;
+using Core.CrossCuttingConcerns.Serilog.Loggers;
 using Microsoft.AspNetCore.Http;
-using Core.CrossCuttingConcers.Logging;
+using Core.CrossCuttingConcerns.Logging;
 using System.Text.Json;
 
-namespace Core.CrossCuttingConcers.Exceptions;
+namespace Core.CrossCuttingConcerns.Exceptions;
 
 public class ExceptionMiddleware
 {

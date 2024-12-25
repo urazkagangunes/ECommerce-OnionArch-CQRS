@@ -1,4 +1,4 @@
-﻿namespace Core.CrossCuttingConcers.Logging;
+﻿namespace Core.CrossCuttingConcerns.Logging;
 
 public class LogDetailWithException : LogDetail
 {

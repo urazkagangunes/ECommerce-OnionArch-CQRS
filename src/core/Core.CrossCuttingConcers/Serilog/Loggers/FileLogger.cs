@@ -1,8 +1,8 @@
-﻿using Core.CrossCuttingConcers.Serilog.ConfigurationModels;
+﻿using Core.CrossCuttingConcerns.Serilog.ConfigurationModels;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 
-namespace Core.CrossCuttingConcers.Serilog.Loggers;
+namespace Core.CrossCuttingConcerns.Serilog.Loggers;
 
 public class FileLogger : LoggerServiceBase
 {
