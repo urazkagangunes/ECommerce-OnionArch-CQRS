@@ -3,6 +3,4 @@ using ECommerce.Domain.Entities;
 
 namespace ECommerce.Persistence.Abstracts;
 
-public interface ICategoryRepository : IAsyncRepository<Category, int>
-{
-}
+public interface IOrderItemRepository : IAsyncRepository<OrderItem, Guid> { }
