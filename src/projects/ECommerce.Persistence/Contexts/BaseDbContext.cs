@@ -19,6 +19,19 @@ public class BaseDbContext : DbContext
         base.OnModelCreating(modelBuilder); // EF Core'un varsayılan davranışlarını uygula
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         //modelBuilder.Entity<User>
+        modelBuilder.Entity<Order>()
+        .Property(o => o.Total)
+        .HasPrecision(18, 2); // 18 basamak, 2'si ondalık kısım
+
+        modelBuilder.Entity<Product>()
+            .Property(p => p.Price)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<User>()
+            .ToTable("AppUsers")
+            .HasDiscriminator<string>("Discriminator")
+            .HasValue<User>("User")
+            .HasValue<AppUser>("AppUser");
     }
 
     public DbSet<Category> Categories { get; set; }

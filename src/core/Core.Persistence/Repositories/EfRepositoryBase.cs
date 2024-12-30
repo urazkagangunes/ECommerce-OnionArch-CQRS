@@ -134,7 +134,7 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext> : IAsyncRepository<T
         var queryProviderQuery =
             (IQueryable<object>)createQueryMethod.Invoke(query.Provider, parameters: new object[] { query.Expression })!;
 
-        return queryProviderQuery.Where(x => !((IEntityTimestamps)x).DeletedTDate.HasValue);
+        return queryProviderQuery.Where(x => !((IEntityTimestamps)x).DeletedDate.HasValue);
     }
 
     protected void CheckHasEntityHaveOneToOneRelation(TEntity entity)
@@ -177,9 +177,9 @@ public class EfRepositoryBase<TEntity, TEntityId, TContext> : IAsyncRepository<T
 
     private async Task setEntityAsSoftDeletedAsync(IEntityTimestamps entity)
     {
-        if (entity.DeletedTDate.HasValue)
+        if (entity.DeletedDate.HasValue)
             return;
-        entity.DeletedTDate = DateTime.UtcNow;
+        entity.DeletedDate = DateTime.UtcNow;
 
         var navigations = Context
             .Entry(entity)
