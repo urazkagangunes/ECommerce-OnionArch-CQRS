@@ -1,27 +1,32 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Logging;
+using Core.Security.Constants;
+using ECommerce.Application.Features.Categories.Rules;
 using ECommerce.Domain.Entities;
+using ECommerce.Persistence.Abstracts;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Commands.Create;
 
-public sealed class CategoryAddCommand : IRequest<CategoryAddedResponseDto>
+public sealed class CategoryAddCommand : IRequest<CategoryAddedResponseDto>, ILoggableRequest
 {
     public string Name { get; set; } = default!;
+    public string[] Roles => [GeneralOperationClaims.Admin];
 
-    public sealed class CategoryAddCommandHandler : IRequestHandler<CategoryAddCommand, CategoryAddedResponseDto>
+    public sealed class CategoryAddCommandHandler(IMapper _mapper, ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules) 
+        : IRequestHandler<CategoryAddCommand, CategoryAddedResponseDto>
     {
-        private readonly IMapper _mapper;
-        public CategoryAddCommandHandler(IMapper mapper)
+        public async Task<CategoryAddedResponseDto> Handle(CategoryAddCommand request, CancellationToken cancellationToken)
         {
-            _mapper = mapper;
-        }
+            await _businessRules.CategoryNameMustBeUniqueAsync(request.Name, cancellationToken);
 
-        public Task<CategoryAddedResponseDto> Handle(CategoryAddCommand request, CancellationToken cancellationToken)
-        {
             Category category = _mapper.Map<Category>(request);
-            CategoryAddedResponseDto response = _mapper.Map<CategoryAddedResponseDto>(category);
+            
+            Category addedCategory = await _categoryRepository.AddAsync(category);
 
-            return Task.FromResult(response);
+            CategoryAddedResponseDto response = _mapper.Map<CategoryAddedResponseDto>(addedCategory);
+
+            return response;
         }
     }
 }
