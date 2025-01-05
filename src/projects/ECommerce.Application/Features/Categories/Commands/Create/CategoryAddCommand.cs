@@ -2,8 +2,8 @@
 using Core.Application.Pipelines.Logging;
 using Core.Security.Constants;
 using ECommerce.Application.Features.Categories.Rules;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Commands.Create;

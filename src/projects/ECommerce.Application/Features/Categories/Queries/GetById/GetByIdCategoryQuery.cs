@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ECommerce.Persistence.Abstracts;
+using ECommerce.Application.Services.Repositories;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Queries.GetById;

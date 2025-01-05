@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Performance;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Queries.GetList;

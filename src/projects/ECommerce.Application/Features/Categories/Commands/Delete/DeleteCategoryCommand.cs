@@ -1,5 +1,5 @@
 ﻿using ECommerce.Application.Features.Categories.Rules;
-using ECommerce.Persistence.Abstracts;
+using ECommerce.Application.Services.Repositories;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Commands.Delete;
