@@ -11,7 +11,7 @@ public static class InfrastructureServiceRegistration
     {
         services.AddScoped<ICloudinaryService, CloudinaryService>();
         services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
-
+        
         return services;
     }
 }
