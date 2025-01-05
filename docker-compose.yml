@@ -1,0 +1,48 @@
+services:
+  ecommerce.webapi:
+    image: ${DOCKER_REGISTRY-}ecommercewebapi
+    build:
+      context: .
+      dockerfile: src/projects/ECommerce.WebAPI/Dockerfile
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.1
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - ELASTIC_USERNAME=elastic
+      - ELASTIC_PASSWORD=DkIedPPSCb
+    networks:
+      - es-net
+    ports:
+      - 9200:9200
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.7.1
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - es-net
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    volumes:
+      - kibana-data:/usr/share/kibana/data
+
+  redis:
+    image: redis:7
+    networks:
+      - es-net
+    ports:
+      - 6379:6379
+networks:
+  es-net:
+    driver: bridge
+
+volumes:
+  elasticsearch-data:
+    driver: local
+  kibana-data:
+    driver: local

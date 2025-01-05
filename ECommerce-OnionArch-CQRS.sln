@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Security", "src\core\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Infrastracture", "src\projects\ECommerce.Infrastracture\ECommerce.Infrastracture.csproj", "{9539A0A0-72B8-48E0-BBCE-964B16F0CD2E}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5291A397-7F87-4BC4-AB85-FA6A7B20DF57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{9539A0A0-72B8-48E0-BBCE-964B16F0CD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9539A0A0-72B8-48E0-BBCE-964B16F0CD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9539A0A0-72B8-48E0-BBCE-964B16F0CD2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5291A397-7F87-4BC4-AB85-FA6A7B20DF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5291A397-7F87-4BC4-AB85-FA6A7B20DF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5291A397-7F87-4BC4-AB85-FA6A7B20DF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5291A397-7F87-4BC4-AB85-FA6A7B20DF57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
