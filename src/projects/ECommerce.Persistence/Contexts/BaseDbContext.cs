@@ -16,7 +16,7 @@ public class BaseDbContext : DbContext
     {
         //base.OnModelCreating(modelBuilder);
         //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        base.OnModelCreating(modelBuilder); // EF Core'un varsayılan davranışlarını uygula
+        //base.OnModelCreating(modelBuilder); // EF Core'un varsayılan davranışlarını uygula
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         //modelBuilder.Entity<User>
         modelBuilder.Entity<Order>()
