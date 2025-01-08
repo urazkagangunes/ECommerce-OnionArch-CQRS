@@ -1,6 +1,10 @@
-﻿using ECommerce.Application.Features.Categories.Commands.Create;
+﻿using Core.Application.Requests;
+using ECommerce.Application.Features.Categories.Commands.Create;
+using ECommerce.Application.Features.Categories.Commands.Delete;
+using ECommerce.Application.Features.Categories.Queries.GetById;
+using ECommerce.Application.Features.Categories.Queries.GetList;
+using ECommerce.Application.Features.Categories.Queries.GetListByPaginate;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.WebAPI.Controllers
@@ -10,17 +14,45 @@ namespace ECommerce.WebAPI.Controllers
     public class CategoriesController : BaseController
     {
         private readonly IMediator _mediator;
-        
+
         public CategoriesController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody] CategoryAddCommand command)
+        public async Task<IActionResult> Create([FromBody] CategoryAddCommand command) =>
+            Ok(await _mediator.Send(command));
+
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetAll()
         {
-            var response = _mediator.Send(command);
+            var query = new GetListCategoryQuery();
+            var response = await _mediator.Send(query);
+
             return Ok(response);
+        }
+
+        [HttpGet("paginate")]
+        public async Task<IActionResult> GetPaginate([FromQuery] PageRequest pageRequest)
+        {
+            var query = new GetListByPaginateCategoryQuery { PageRequest = pageRequest };
+            var response = await _mediator.Send(query);
+
+            return Ok(response);
+        }
+
+        [HttpGet("getbyid/{id}")]
+        public async Task<IActionResult> GetById([FromQuery] int id) =>
+            Ok(await _mediator.Send(new GetByIdCategoryQuery { Id = id }));
+
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete([FromQuery] int id)
+        {
+            var command = new DeleteCategoryCommand { Id = id };
+            await _mediator.Send(command);
+
+            return Ok(command);
         }
     }
 }
