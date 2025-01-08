@@ -7,6 +7,6 @@ public class ProductAddValidator : AbstractValidator<ProductAddCommand>
     public ProductAddValidator()
     {
         RuleFor(x => x.Name).NotNull().WithMessage("Name is required")
-            .MinimumLenght(3).WithMessage("Name must be at least 3 characters");
+            .MinimumLength(3).WithMessage("Name must be at least 3 characters");
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Core.CrossCuttingConcerns.Exceptions.ExceptionTypes;
 using Core.Security.Hashing;
 using ECommerce.Application.Features.Auth.Constants;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using Microsoft.Extensions.Configuration;
 
 namespace ECommerce.Application.Features.Auth.Rules;

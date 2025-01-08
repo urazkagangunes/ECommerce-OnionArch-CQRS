@@ -1,7 +1,7 @@
 ﻿using Core.Persistence.Extensions;
 using ECommerce.Application.Features.Auth.Rules;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using System.Linq.Expressions;
 
 namespace ECommerce.Application.Services.UserServices;

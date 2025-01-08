@@ -1,7 +1,7 @@
 ﻿using Core.Security.Entities;
 using Core.Security.JWT;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Application.Services.UserWithTokenServices;

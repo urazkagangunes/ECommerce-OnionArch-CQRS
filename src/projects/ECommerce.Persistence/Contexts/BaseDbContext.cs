@@ -2,6 +2,7 @@
 using ECommerce.Domain.Entities;
 using System.Reflection;
 using Core.Security.Entities;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace ECommerce.Persistence.Contexts;
 
@@ -12,20 +13,17 @@ public class BaseDbContext : DbContext
         
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        optionsBuilder.ConfigureWarnings(warnings =>
+            warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //base.OnModelCreating(modelBuilder);
-        //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        //base.OnModelCreating(modelBuilder); // EF Core'un varsayılan davranışlarını uygula
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        //modelBuilder.Entity<User>
-        modelBuilder.Entity<Order>()
-        .Property(o => o.Total)
-        .HasPrecision(18, 2); // 18 basamak, 2'si ondalık kısım
-
-        modelBuilder.Entity<Product>()
-            .Property(p => p.Price)
-            .HasPrecision(18, 2);
 
         modelBuilder.Entity<User>()
             .ToTable("AppUsers")

@@ -1,5 +1,5 @@
-﻿using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
+﻿using ECommerce.Application.Services.Repositories;
+using ECommerce.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Application.Services.RoleServices;

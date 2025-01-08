@@ -1,6 +1,6 @@
 ﻿using Core.Persistence.Repositories;
+using ECommerce.Application.Services.Repositories;
 using ECommerce.Domain.Entities;
-using ECommerce.Persistence.Abstracts;
 using ECommerce.Persistence.Contexts;
 
 namespace ECommerce.Persistence.Concretes;
