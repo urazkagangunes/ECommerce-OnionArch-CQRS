@@ -12,3 +12,7 @@ Applied SOLID principles, alongside error handling, logging, and validation mech
 
 •  Architecture: Integrated Elasticsearch for fast and efficient search operations. Implemented Redis for caching, optimizing and 
 response times and reducing database load. 
+
+
+
+----------------------------------------ASK FOR MORE------------------------------------------ 
